@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "PlaypenSans";
+    src: url("/assets/fonts/PlaypenSans-VariableFont_wght.ttf")
+        format("truetype");
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Playpen Sans", sans-serif;
+    background: #e4ecf0;
+    color: #266584;
+}
+
+.title {
+    font-size: calc(1.525rem + 3vw);
+    margin-bottom: 3rem;
+    margin-top: 0;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem;
+}
+
+.container-cat {
+    display: flex;
+    margin: 1rem;
+}
+
+.cat {
+    margin-right: 0.7rem;
+}
+
+.container-p {
+    position: relative;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 6px 6px 12px #93b2c2, -3px -3px 12px #fff;
+    border: 2px solid #93b2c2;
+}
+
+.triangle {
+    position: absolute;
+    left: -15px;
+    top: 20px;
+    transform: translateY(-50%) rotate(-90deg);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #93b2c2;
+}
+
+.btn-redirect {
+    position: relative;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 2rem;
+    background: #e4ecf0;
+    border: 1px solid #e4ecf0;
+    box-shadow: 6px 6px 12px #93b2c2, -3px -3px 12px #fff;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: #266584;
+    margin: 1rem;
+}

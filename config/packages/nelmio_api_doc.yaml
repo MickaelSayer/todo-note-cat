@@ -1,0 +1,146 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: My supers notes
+            description: Todo list app
+            version: 1.0.0
+        paths:
+            /api/user/login:
+                post:
+                    operationId: postCredentialsItem
+                    tags:
+                        - Token
+                    summary: Allows you to get the JWT token to log.
+                    requestBody:
+                        description: Create a new JWT token
+                        content:
+                            application/json:
+                                schema:
+                                    $ref: '#/components/schemas/Credentials'
+                    responses:
+                        '200':
+                            description: Recovers the JWT token
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/Token'
+        components:
+            schemas:
+                Token:
+                    type: object
+                    properties:
+                        token:
+                            type: string
+                            readOnly: true
+                Credentials:
+                    type: object
+                    properties:
+                        username:
+                            type: string
+                            default: mickael.sayer.dev@gmail.com
+                        password:
+                            type: string
+                            default: '123456789'
+                Note:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                            default: 23
+                        user:
+                            type: object
+                            properties:
+                                id:
+                                    type: integer
+                                    default: 5
+                        title:
+                            type: string
+                            default: Exemple title
+                        created_at:
+                            type: string
+                            default: "2024-01-17 14:55"
+                        tasks:
+                            type: array
+                            items:
+                                type: object
+                                properties:
+                                    id:
+                                        type: number
+                                        default: 2
+                                    description:
+                                        type: string
+                                        default: "Example description"
+                                    checked:
+                                        type: boolean
+                                        default: false
+                                    created_at:
+                                        type: string
+                                        default: "2024-01-17 14:55"
+                Validation:
+                    type: object
+                    properties:
+                        title:
+                            type: string
+                            default: 'Error validation title'
+                        description:
+                            type: string
+                            default: 'Error validation description'
+                ValidationForgotPasswordEmail:
+                    type: object
+                    properties:
+                        email:
+                            type: string
+                            default: 'Error validation email'
+                ValidationForgotPasswordPassword:
+                    type: object
+                    properties:
+                        password:
+                            type: string
+                            default: 'Error validation password'
+                ValidationLogin:
+                    type: object
+                    properties:
+                        email:
+                            type: string
+                            default: 'Error validation email'
+                        password:
+                            type: string
+                            default: 'Error validation password'
+                ValidationLoginEmailInvalid:
+                    type: object
+                    properties:
+                        valid:
+                            type: string
+                            default: 'Error validation email'
+                        email:
+                            type: string
+                            default: 'Error validation email'
+                CheckTask:
+                    properties:
+                        id:
+                            type: number
+                            default: 2
+                        checked:
+                            type: boolean
+                            default: true
+            securitySchemes:
+                bearerAuth:
+                    type: apiKey
+                    in: header
+                    name: Authorization
+                    description: Infos = Use this diagram with the token bearer for user authentication. (Token -> /api/user/login)
+                BearerCheckToken:
+                    type: apiKey
+                    in: header
+                    name: Authorization
+                    description: Infos = Useful to check the validity of a token with the end-point (SECURITY -> /api/user/security/check)
+                BearerForgotPassword:
+                    type: apiKey
+                    in: header
+                    name: Authorization
+                    description: Infos = Use for the modification of the password follow steps 1 and 2 (USER - FORGOT PASSWORD)
+        security:
+            - bearerAuth: []
+    areas:
+        path_patterns:
+            - ^/api(?!/doc$)

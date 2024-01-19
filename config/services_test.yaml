@@ -1,0 +1,13 @@
+services:
+    tests.token_helper:
+        class: App\Tests\utils\TokenHelperTest
+        autowire: true
+        public: true
+    tests.request_helper:
+        class: App\Tests\utils\RequestHelperTest
+        autowire: true
+        public: true
+    tests.note_helper:
+        class: App\Tests\utils\NoteHelperTest
+        autowire: true
+        public: true

@@ -1,0 +1,260 @@
+$color-1: #26844f;
+$color-2: #419365;
+$color-3: #5ca37b;
+$color-4: #77b291;
+$color-5: #93c2a7;
+$color-6: #aed1bd;
+$color-7: #c9e0d3;
+$color-8: #e4f0e9;
+$color-9: #fff;
+
+$shadow : 6px 6px 12px $color-5,
+-3px -3px 12px $color-9;
+$shadow-active: inset 4px 4px 12px $color-5,
+inset -4px -4px 12px $color-9;
+
+$color-error: #1DD76E;
+$bg-error: rgba(38, 132, 79, 0.06);
+
+html {
+    &.theme-green {
+        body {
+            color: $color-1;
+            background-color: $color-8;
+        }
+
+        .loading {
+            .leap-frog__dot {
+                &::before {
+                    background-color: $color-1;
+                }
+            }
+        }
+
+        %base-button-style {
+            color: $color-1;
+            background: $color-8;
+            border: 1px solid $color-8;
+            box-shadow: $shadow;
+
+            &.active,
+            &:hover {
+                color: $color-1;
+                border: 1px solid $color-7;
+                box-shadow: $shadow-active;
+            }
+        }
+
+        .btn-lg {
+            @extend %base-button-style;
+        }
+
+        .btn-md {
+            @extend %base-button-style;
+            padding: .7em;
+
+
+            &.button-nav {
+                &:not(.collapsed) {
+                    color: $color-1;
+                    border: 1px solid $color-7;
+                    box-shadow: $shadow-active;
+                }
+            }
+        }
+
+        .container-connexion-info {
+            .info-bubble {
+                background: $color-8;
+                box-shadow: $shadow;
+                border: 2px solid $color-5;
+
+                &::after {
+                    border-bottom: 10px solid $color-5;
+                }
+            }
+        }
+
+        .container-notes {
+            .date-note {
+                color: $color-4;
+            }
+
+            .progress {
+                background-color: $color-8;
+
+                .progress-value {
+                    color: $color-8;
+                }
+
+                $colors: $color-4,
+                $color-3,
+                $color-2,
+                $color-1;
+
+                @for $i from 0 through 4 {
+                    .lvl-#{$i * 25} {
+                        padding: 0 .25rem;
+
+                        @if $i==0 {
+                            background: $color-4;
+                        }
+
+                        @else {
+                            background: linear-gradient(to right, $color-7 5%, nth($colors, $i));
+
+                            @if $i==4 {
+                                padding: 0 1.1rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .card-note {
+                color: $color-1;
+                background: $color-8;
+                border: 1px solid $color-8;
+                box-shadow: 4px 8px 12px $color-5, -6px -6px 12px $color-9;
+            }
+
+            .list-group {
+                .bg-ligth {
+                    background-color: $color-7;
+                }
+
+                .check {
+                    svg {
+                        stroke: $color-4;
+                    }
+
+                    &:hover {
+                        svg {
+                            stroke: $color-2;
+                        }
+                    }
+                }
+
+                .common-checkbox:checked+.check svg {
+                    stroke: $color-1;
+                }
+            }
+        }
+
+        .modal-content {
+            background-color: $color-8;
+            box-shadow: $shadow;
+
+            .modal-title {
+                color: $color-1;
+            }
+        }
+
+        form {
+            .input {
+                box-shadow: inset 3px 3px 8px $color-5;
+                color: $color-1;
+
+                &::placeholder {
+                    color: $color-6;
+                }
+
+                &:focus {
+                    color: $color-1;
+                    background: $color-8;
+                    box-shadow: inset 3px 3px 8px $color-5, 3px 4px 9px $color-9;
+                }
+
+                &.field-invalid {
+                    box-shadow: inset 1px 1px 2px $color-error;
+                }
+            }
+
+            .forgot-password {
+                span {
+                    color: $color-2;
+
+                    &:hover {
+                        color: $color-1;
+                    }
+                }
+            }
+
+            .is-invalid {
+                color: $color-error;
+            }
+
+            .form-button-task {
+                background-color: $color-8;
+            }
+
+            .info-task {
+                color: $color-3;
+            }
+
+            .field-count-characters {
+                color: $color-3;
+
+                &.count-error {
+                    color: $color-error;
+                }
+            }
+
+            .password-list {
+                .btn-lock {
+                    background: $color-8;
+                    box-shadow: $shadow;
+
+                    svg {
+                        .bling {
+                            stroke: $color-1;
+                        }
+
+                        .lock {
+                            stroke: $color-1;
+                        }
+
+                        .lockb {
+                            fill: $color-1;
+                        }
+                    }
+                }
+
+                .inpLock {
+                    &:checked+label {
+                        background: $color-8;
+                        box-shadow: $shadow-active;
+                    }
+                }
+            }
+        }
+
+        .alert {
+
+            &.is-invalid,
+            &.critical-error {
+                color: $color-error;
+            }
+
+            &.data-empty {
+                color: $color-1;
+            }
+        }
+
+        .change-color {
+            box-shadow: $shadow-active;
+
+            span {
+                box-shadow: $shadow;
+            }
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px $color-6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: $color-1;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{% apply inline_css(source('@styles/emails/base-template.css')) %}
+<div class="container">
+    <h1 class="title">{{title}}</h1>
+
+    <div class="container-cat">
+        <img src="{{ email.image('@images/kitty_admin.png') }}" alt="Un chat super héro" height="64" width="64"
+            class="cat" />
+        <div class="container-p">
+            <div class="triangle"></div>
+            {% for desc in descs %}
+            <p>{{ desc }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if token is defined %}
+    <form action="{{ url(route_name) }}" method="POST">
+        <input type="hidden" name="token" value="{{ token }}">
+        <button class="btn-redirect" type="submit">{{btn_text}}</button>
+    </form>
+    {% endif %}
+</div>
+{% endapply %}
