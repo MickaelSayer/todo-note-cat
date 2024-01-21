@@ -35,7 +35,7 @@ const Login = () => {
                 return () => clearTimeout(timeoutId);
             }
 
-            if (fortgotPassword !== null && fortgotPassword == 0) {
+            if (fortgotPassword !== null && fortgotPassword == 5) {
                 getFlashFunction.addCriticalError(
                     "Aïe, je ne peux pas modifier ton mot de passe. Réessaie."
                 );
