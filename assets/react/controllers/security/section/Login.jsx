@@ -33,8 +33,8 @@ const Login = () => {
                 return () => clearTimeout(timeoutId);
             }
 
-            if (fortgotPassword !== null && fortgotPassword == 1) {
-                getFlashFunction.addCriticalError(
+            if (fortgotPassword !== null && fortgotPassword == 0) {
+                getFlashFunction.addSuccess(
                     "Aïe, je ne peux pas modifier ton mot de passe. Réessaie."
                 );
             }
