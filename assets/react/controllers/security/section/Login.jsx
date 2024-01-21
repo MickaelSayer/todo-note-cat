@@ -21,7 +21,7 @@ const Login = () => {
             const validEmail = searchParams.get("validEmail");
             const fortgotPassword = searchParams.get("fortgotPassword");
 
-            if (validEmail !== null && validEmail == 1) {
+            if (validEmail !== null && validEmail == 2) {
                 getFlashFunction.addSuccess(
                     "Ton adresse e-mail a été validée; tu peux te connecter maintenant."
                 );
