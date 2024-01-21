@@ -37,10 +37,10 @@ nelmio_api_doc:
                     properties:
                         username:
                             type: string
-                            default: mickael.sayer.dev@gmail.com
+                            default: your_email_adress
                         password:
                             type: string
-                            default: '123456789'
+                            default: your_password
                 Note:
                     type: object
                     properties:
