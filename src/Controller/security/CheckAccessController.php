@@ -76,8 +76,7 @@ class CheckAccessController extends AbstractController
         $status_code = Response::HTTP_BAD_REQUEST;
         try {
             $user = $this->tokenService->getUserAuth();
-            dump(($type_token === "token_at" || $type_token === "token_fp"));
-            dump($user !== null);exit;
+            dump($type_token);exit;
             if ($user !== null && ($type_token === "token_at" || $type_token === "token_fp")) {
                 $status_code = Response::HTTP_OK;
                 if ($type_token === "token_fp" && !$user->isForgotPassword()) {
