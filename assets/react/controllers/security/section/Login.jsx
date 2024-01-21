@@ -12,6 +12,8 @@ const Login = () => {
     const TOKEN_AUTH = getTokenFunction.getTokenLocalStorage("token_at");
 
     useEffect(() => {
+        getFlashFunction.deleteAllFlashErrorsMessage();
+
         if (TOKEN_AUTH) {
             navigate("/");
         } else {

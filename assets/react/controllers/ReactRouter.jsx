@@ -11,7 +11,7 @@ import PageError404 from "./components/page_errors/PageError404";
 import Login from "./security/section/Login";
 import SignUp from "./security/section/SignUp";
 import ForgotPassword from "./security/section/ForgotPassword";
-import { FlashMessageProvider, flashMessageContext } from "./context/FlashMessageContext";
+import { FlashMessageProvider } from "./context/FlashMessageContext";
 import { SecurityProvider } from "./context/security/securityContext";
 import {
     SecurityTokenProvider,
@@ -33,13 +33,6 @@ const ReactRouter = () => {
 };
 
 const Routing = () => {
-    const { getFlashFunction } = useContext(flashMessageContext);
-    const LOCATION = useLocation();
-
-    useEffect(() => {
-        getFlashFunction.deleteAllFlashErrorsMessage();
-    }, [LOCATION.pathname]);
-
     return (
         <>
             <div className="container-fluid d-flex justify-content-sm-between justify-content-center flex-wrap">
