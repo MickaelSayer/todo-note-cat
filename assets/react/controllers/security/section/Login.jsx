@@ -11,16 +11,16 @@ const Login = () => {
 
     const TOKEN_AUTH = getTokenFunction.getTokenLocalStorage("token_at");
 
-    const searchParams = new URLSearchParams(location.search);
-    const validEmail = searchParams.get("validEmail");
-    const fortgotPassword = searchParams.get("fortgotPassword");
-
     useEffect(() => {
         getFlashFunction.deleteAllFlashErrorsMessage();
 
         if (TOKEN_AUTH) {
             navigate("/");
         } else {
+            const searchParams = new URLSearchParams(location.search);
+            const validEmail = searchParams.get("validEmail");
+            const fortgotPassword = searchParams.get("fortgotPassword");
+
             if (validEmail !== null && validEmail == 1) {
                 getFlashFunction.addSuccess(
                     "Ton adresse e-mail a été validée; tu peux te connecter maintenant."
@@ -31,10 +31,8 @@ const Login = () => {
                 }, 5000);
 
                 return () => clearTimeout(timeoutId);
-            }
-
-            if (fortgotPassword !== null && fortgotPassword == 0) {
-                getFlashFunction.addSuccess(
+            } else if (fortgotPassword !== null && fortgotPassword == 0) {
+                getFlashFunction.addCriticalError(
                     "Aïe, je ne peux pas modifier ton mot de passe. Réessaie."
                 );
             }
