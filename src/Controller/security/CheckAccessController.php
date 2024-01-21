@@ -72,7 +72,7 @@ class CheckAccessController extends AbstractController
     #[Route("/api/user/security/check", name:"api_security_check_auth", methods:"GET")]
     public function checkValidationTokenAuth(Request $request): JsonResponse
     {
-        $type_token = $request->headers->get('Type_token');
+        $type_token = $request->headers->get('TYPE_TOKEN');
         dump($request); exit;
         $status_code = Response::HTTP_BAD_REQUEST;
         try {
