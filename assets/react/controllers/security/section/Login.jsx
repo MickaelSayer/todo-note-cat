@@ -21,8 +21,6 @@ const Login = () => {
             const validEmail = searchParams.get("validEmail");
             const fortgotPassword = searchParams.get("fortgotPassword");
 
-            console.log('test')
-
             if (validEmail !== null && validEmail == 1) {
                 getFlashFunction.addSuccess(
                     "Ton adresse e-mail a été validée; tu peux te connecter maintenant."
@@ -35,8 +33,8 @@ const Login = () => {
                 return () => clearTimeout(timeoutId);
             }
 
-            if (fortgotPassword !== null && fortgotPassword == 5) {
-                getFlashFunction.addCriticalError(
+            if (fortgotPassword !== null && fortgotPassword == 0) {
+                getFlashFunction.addException(
                     "Aïe, je ne peux pas modifier ton mot de passe. Réessaie."
                 );
             }
