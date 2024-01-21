@@ -36,7 +36,7 @@ const useFlashMessage = () => {
      * @param {function} handleDisplayForm Function that allows you to change the display of a component
      */
     const _addCriticalError = (message, handleDisplayForm = null, type_display = 'content') => {
-        _deleteAllFlashErrorsMessage();
+       /* _deleteAllFlashErrorsMessage();*/
 
         setFlash(prevResponse => ({
             ...prevResponse,
