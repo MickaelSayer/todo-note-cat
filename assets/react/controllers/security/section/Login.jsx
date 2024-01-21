@@ -34,6 +34,7 @@ const Login = () => {
             }
 
             if (fortgotPassword && fortgotPassword == 0) {
+                console.log('test');
                 getFlashFunction.addCriticalError(
                     "Aïe, je ne peux pas modifier ton mot de passe. Réessaie."
                 );
