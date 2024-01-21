@@ -126,7 +126,7 @@ const RequestSecurity = () => {
                 url: '/api/user/security/check',
                 headers: {
                     Authorization: `Bearer ${COOKIE_TOKEN}`,
-                    type_token: type_token
+                    Type_token: type_token
                 },
             });
         } catch (error) {

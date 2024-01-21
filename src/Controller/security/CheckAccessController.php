@@ -72,11 +72,10 @@ class CheckAccessController extends AbstractController
     #[Route("/api/user/security/check", name:"api_security_check_auth", methods:"GET")]
     public function checkValidationTokenAuth(Request $request): JsonResponse
     {
-        $type_token = $request->headers->get('type_token');
+        $type_token = $request->headers->get('Type_token');
         $status_code = Response::HTTP_BAD_REQUEST;
         try {
             $user = $this->tokenService->getUserAuth();
-            dump($type_token);exit;
             if ($user !== null && ($type_token === "token_at" || $type_token === "token_fp")) {
                 $status_code = Response::HTTP_OK;
                 if ($type_token === "token_fp" && !$user->isForgotPassword()) {
