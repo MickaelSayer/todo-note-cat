@@ -20,7 +20,7 @@ const SignUp = () => {
             const searchParams = new URLSearchParams(location.search);
             const validEmail = searchParams.get("validEmail");
 
-            if (validEmail && validEmail == 0) {
+            if (validEmail !== null && validEmail == 0) {
                 getFlashFunction.addCriticalError(
                     "Impossible de valider ton adresse e-mail. Réessaie de créer un nouveau compte."
                 );
