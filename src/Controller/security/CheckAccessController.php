@@ -73,8 +73,6 @@ class CheckAccessController extends AbstractController
     public function checkValidationTokenAuth(Request $request): JsonResponse
     {
         $type_token = $request->headers->get('Type-Token');
-        dump($type_token);
-        dump($request); exit;
         $status_code = Response::HTTP_BAD_REQUEST;
         try {
             $user = $this->tokenService->getUserAuth();
